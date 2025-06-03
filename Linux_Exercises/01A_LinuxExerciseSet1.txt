@@ -1,0 +1,157 @@
+﻿1. Display your current directory.
+pwd
+/home/sw900b4_janitha
+
+2. List all files and directories in the current directory.
+ls
+3. Create a directory called 'practice'.
+mkdir practice
+4. Change into the 'practice' directory.
+
+
+5. Create a nested directory structure: dir1/dir2/dir3.
+mkdir -p dir1/dir2/dir3
+sw900b4_janitha@itg-HP-Z6-G4-Workstation:~/practice/dir1/dir2/dir3$
+
+6. Move back to the home directory.
+cd
+sw900b4_janitha@itg-HP-Z6-G4-Workstation:~/practice/dir1/dir2/dir3$
+
+7. Remove the entire 'practice' directory.
+rm -r practice
+
+8. Create three directories at once: 'linux1', 'linux2', and 'linux3'.
+mkdir linux1 linux2 linux3
+
+9. Change into 'linux1' and create a subdirectory 'scripts' inside it.
+cd linux1
+mkdir scripts
+10. Move back to the parent directory using a relative path.
+
+cd ..
+
+11. List all directories and files, including hidden ones, in long format.
+ls -a -l
+
+12. Navigate into 'linux2', then go back one level using 'cd ..'.
+cd linux2
+cd ..
+
+13. Create a nested directory in one command: 'projects/java/app'.
+mkdir -p projects/java/app
+
+14. Use the 'tree' command to view the directory structure (install it if needed).
+tree
+
+tree
+.
+├── d1
+├── Desktop
+│   ├── Data.desktop
+│   └── Tasks.desktop
+├── dir1
+│   ├── dir2
+│   │   └── dir3
+│   ├── f1
+│   ├── f2
+│   ├── f3
+│   └── f4
+├── dir2
+│   ├── f1
+│   ├── f2
+│   ├── f3
+│   ├── f4
+│   ├── ff1
+│   └── ff2
+├── Documents
+│   └── r1.ods
+├── Downloads
+│   ├── Janitha   2014 (1).jpg
+│   └── janitha_sign.JPG
+├── exercise1.r
+├── janitha_personal
+│   └── janithaphoto.jpg
+├── linux1
+│   └── scripts
+├── linux2
+├── linux3
+├── Linux_Janitha
+│   ├── 01A_LinuxExerciseSet1.txt
+│   ├── 01_LinuxExerciseSet1.txt
+│   └── 02_LinuxExerciseSet2.txt
+├── Music
+├── Pictures
+├── projects
+│   └── java
+│       └── app
+├── Public
+├── Python
+│   ├── guesssir.py
+│   └── num_guess.py
+├── python_janitha
+│   ├── assignment1problem1.py
+│   ├── assignment1problem2_original.py
+│   ├── assignment1problem2original.py
+│   ├── assignment1problem2.py
+│   ├── assignment1problem3.py
+│   ├── frequency.py
+│   ├── palindrome.py
+│   └── prime.py
+├── R
+│   └── x86_64-pc-linux-gnu-library
+│       └── 3.6
+├── R_documents-janitha
+│   └── day1r.odt
+├── R_janitha
+│   └── Day1.r
+├── sample.py
+├── set2
+│   └── f1
+├── spreadsheets_janitha
+│   ├── class1
+│   │   ├── Sales.xlsx
+│   │   └── StudentGrades.xlsx
+│   ├── class2
+│   │   ├── DatabarsQuestion3.xlsx
+│   │   ├── Globalwarming2018Question2.xlsx
+│   │   ├── MakeupsortQuestion1a.xlsx
+│   │   └── MakeupsortQuestion1b.xlsx
+│   └── reference spreadsheets
+│       ├── Databars.xlsx
+│       ├── Globalwarming2018.xlsx
+│       └── Makeupsort.xlsx
+├── string_frequency.py
+├── Templates
+├── thinclient_drives
+└── Videos
+
+35 directories, 44 files
+
+15. Remove the 'linux3' directory (only if it’s empty).
+rmdir linux3
+
+16. Try to remove a non-empty directory and note the error.
+rmdir dir1
+rmdir: failed to remove 'dir1': Directory not empty
+
+17. Use 'rmdir -p' to remove a directory path (e.g., 'projects/java/app') from deepest to top level.
+rmdir -p projects/java/app
+
+
+18. Explore what happens when you run 'cd ~' and 'cd /'.
+
+sw900b4_janitha@itg-HP-Z6-G4-Workstation:~$ cd ~
+sw900b4_janitha@itg-HP-Z6-G4-Workstation:~$ cd /
+sw900b4_janitha@itg-HP-Z6-G4-Workstation:/$ 
+
+19. Use 'cd -' to toggle between the current and previous directory.
+sw900b4_janitha@itg-HP-Z6-G4-Workstation:~/dir1$ cd -
+/home/sw900b4_janitha
+sw900b4_janitha@itg-HP-Z6-G4-Workstation:~$ cd -
+/home/sw900b4_janitha/dir1
+sw900b4_janitha@itg-HP-Z6-G4-Workstation:~/dir1$ 
+
+20. Use tab completion to navigate to a directory—observe how it helps speed up typing.
+first tab- cd dir2/
+second tab- cd dir2/dir3/
+since dir1/dir1/dir3 exists. else the tab will not display the next possible directory name.

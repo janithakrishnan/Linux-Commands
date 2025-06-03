@@ -1,0 +1,117 @@
+
+1.Create a directory named set5 in your home directory and
+ create 5 files named f1,f2,f3,f4 and f5 to contain some data. 
+  cd set5
+cat >f1
+one 
+two
+cat >f2
+three
+four
+cat >f3
+five 
+six
+cat >f4
+seven
+eight
+cat >f5
+nine
+ten
+
+
+2.check the output of ls -l and redirect the same to a file named lso.
+ls -l|cat >lso
+
+How to check?
+cat lso
+
+total 20
+-rw-rw-r-- 1 sw900b4_janitha sw900b4_janitha  8 May 30 13:50 f1
+-rw-rw-r-- 1 sw900b4_janitha sw900b4_janitha 11 May 30 13:50 f2
+-rw-rw-r-- 1 sw900b4_janitha sw900b4_janitha  9 May 30 13:50 f3
+-rw-rw-r-- 1 sw900b4_janitha sw900b4_janitha 12 May 30 13:50 f4
+-rw-rw-r-- 1 sw900b4_janitha sw900b4_janitha  9 May 30 13:51 f5
+-rw-rw-r-- 1 sw900b4_janitha sw900b4_janitha  0 May 30 13:52 lso
+
+
+3.Without using editor remove first line from lso and get the output in lso1 (use tail -n option and +)
+tail -n +2 lso| cat >lso1
+
+How to check?
+cat lso1
+
+-rw-rw-r-- 1 sw900b4_janitha sw900b4_janitha  8 May 30 13:50 f1
+-rw-rw-r-- 1 sw900b4_janitha sw900b4_janitha 11 May 30 13:50 f2
+-rw-rw-r-- 1 sw900b4_janitha sw900b4_janitha  9 May 30 13:50 f3
+-rw-rw-r-- 1 sw900b4_janitha sw900b4_janitha 12 May 30 13:50 f4
+-rw-rw-r-- 1 sw900b4_janitha sw900b4_janitha  9 May 30 13:51 f5
+-rw-rw-r-- 1 sw900b4_janitha sw900b4_janitha  0 May 30 13:52 lso
+
+
+4.Create a file h1 to contain Permission#Links#Owner#GroupOwner#Size#Month#Day#FileName 
+echo "Permission#Links#Owner#GroupOwner#Size#Month#Day#FileName" | cat > h1
+
+
+5.In the file lso1 change the delimiter from space character to hash(#) and get the output in lso2
+ tr ' ' '#' <lso1>lso2
+
+
+cat lso2
+-rw-rw-r--#1#sw900b4_janitha#sw900b4_janitha##8#May#30#13:50#f1
+-rw-rw-r--#1#sw900b4_janitha#sw900b4_janitha#11#May#30#13:50#f2
+-rw-rw-r--#1#sw900b4_janitha#sw900b4_janitha##9#May#30#13:50#f3
+-rw-rw-r--#1#sw900b4_janitha#sw900b4_janitha#12#May#30#13:50#f4
+-rw-rw-r--#1#sw900b4_janitha#sw900b4_janitha##9#May#30#13:51#f5
+-rw-rw-r--#1#sw900b4_janitha#sw900b4_janitha##0#May#30#13:52#lso
+
+6.Numerically sort lso2 based on the fifth column.   
+sort -t'#' -k5,5n lso2
+
+-rw-rw-r--#1#sw900b4_janitha#sw900b4_janitha##0#May#30#13:52#lso
+-rw-rw-r--#1#sw900b4_janitha#sw900b4_janitha##8#May#30#13:50#f1
+-rw-rw-r--#1#sw900b4_janitha#sw900b4_janitha##9#May#30#13:50#f3
+-rw-rw-r--#1#sw900b4_janitha#sw900b4_janitha##9#May#30#13:51#f5
+-rw-rw-r--#1#sw900b4_janitha#sw900b4_janitha#11#May#30#13:50#f2
+-rw-rw-r--#1#sw900b4_janitha#sw900b4_janitha#12#May#30#13:50#f4
+
+
+7.Using the content of h1 make a heading  for lso2 and get the output in lso3.(hint: cat command) 
+cat h1 lso2 >lso3
+
+cat lso3
+Permission#Links#Owner#GroupOwner#Size#Month#Day#FileName
+-rw-rw-r--#1#sw900b4_janitha#sw900b4_janitha##8#May#30#13:50#f1
+-rw-rw-r--#1#sw900b4_janitha#sw900b4_janitha#11#May#30#13:50#f2
+-rw-rw-r--#1#sw900b4_janitha#sw900b4_janitha##9#May#30#13:50#f3
+-rw-rw-r--#1#sw900b4_janitha#sw900b4_janitha#12#May#30#13:50#f4
+-rw-rw-r--#1#sw900b4_janitha#sw900b4_janitha##9#May#30#13:51#f5
+-rw-rw-r--#1#sw900b4_janitha#sw900b4_janitha##0#May#30#13:52#lso
+
+
+ 
+8.Without using editor,put some hyphen characters
+ (the no should be the same as that of no of characters in h1 file (hint:tr command))
+ at the end of lso3,and get the output in lso4. (hint: semicolon to separate commands)
+ 
+ cat lso3>lso5;tr '[:print:]' '-'<h1>>lso5
+ 		(or)
+ cat lso3>lso4;head -1 lso3|tr '[:print:]' '-'>>lso4
+ 
+
+
+ 
+
+9.Display lso4.
+
+cat lso4
+Permission#Links#Owner#GroupOwner#Size#Month#Day#FileName
+-rw-rw-r--#1#sw900b4_janitha#sw900b4_janitha##8#May#30#13:50#f1
+-rw-rw-r--#1#sw900b4_janitha#sw900b4_janitha#11#May#30#13:50#f2
+-rw-rw-r--#1#sw900b4_janitha#sw900b4_janitha##9#May#30#13:50#f3
+-rw-rw-r--#1#sw900b4_janitha#sw900b4_janitha#12#May#30#13:50#f4
+-rw-rw-r--#1#sw900b4_janitha#sw900b4_janitha##9#May#30#13:51#f5
+-rw-rw-r--#1#sw900b4_janitha#sw900b4_janitha##0#May#30#13:52#lso
+---------------------------------------------------------
+
+ 
+

@@ -1,0 +1,199 @@
+1.Switch to home directory. Create another directory named set6 and send the output of ls -al command to the file lso.out in set6.
+
+cd      -go to root
+mkdir set6
+ls -al > set6/lso.out
+
+2.Switch to set6
+cd set6
+use grep to solve the following questions and use lso.out as the input file
+
+3.Display lines that correspond to directories 
+grep '^d' lso.out
+
+Sample:
+drwxr-xr-x  51 sw900b4_janitha sw900b4_janitha   4096 Jun  3 13:51 .
+drwxr-xr-x 128 root            root              4096 May  2 12:03 ..
+drwxrwxr-x  10 sw900b4_janitha sw900b4_janitha   4096 May 20 13:50 Assignments Janitha
+drwx------  21 sw900b4_janitha sw900b4_janitha   4096 Jun  3 13:35 .cache
+drwxr-xr-x  23 sw900b4_janitha sw900b4_janitha   4096 Jun  2 13:59 .config
+drwxrwxr-x   2 sw900b4_janitha sw900b4_janitha   4096 Apr 28 14:12 d1
+
+
+4.Display lines that correspond to non-directories. 
+grep -v '^d' lso.out
+
+Sample:
+total 1416
+-rw-------   1 sw900b4_janitha sw900b4_janitha   6505 Jun  2 15:01 .bash_history
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha    220 Apr 28 11:16 .bash_logout
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha   3771 Apr 28 11:16 .bashrc
+-rwxrw-r--   1 sw900b4_janitha sw900b4_janitha      5 May  5 13:44 dt
+-rw-rw-r--   1 sw900b4_janitha sw900b4_janitha    257 Apr 29 17:09 exercise1.r
+
+
+5.Display lines that conatin a dot(.) in the filename section.
+grep ' [^ ]*\.[^ ]*$' lso.out
+
+Sample:
+
+grep ' [^ ]*\.[^ ]*$' lso.out
+drwxr-xr-x  51 sw900b4_janitha sw900b4_janitha   4096 Jun  3 13:51 .
+drwxr-xr-x 128 root            root              4096 May  2 12:03 ..
+-rw-------   1 sw900b4_janitha sw900b4_janitha   6505 Jun  2 15:01 .bash_history
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha    220 Apr 28 11:16 .bash_logout
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha   3771 Apr 28 11:16 .bashrc
+drwx------  21 sw900b4_janitha sw900b4_janitha   4096 Jun  3 13:35 .cache
+drwxr-xr-x  23 sw900b4_janitha sw900b4_janitha   4096 Jun  2 13:59 .config
+drwx------   3 sw900b4_janitha sw900b4_janitha   4096 Apr 28 13:58 .dbus
+drwxrwxr-x   3 sw900b4_janitha sw900b4_janitha   4096 May  5 15:12 .dotnet
+-rw-rw-r--   1 sw900b4_janitha sw900b4_janitha    257 Apr 29 17:09 exercise1.r
+
+6.Display lines with execute permission set for the user category in the permission section.
+grep '^[^ ]\{3\}x' lso.out
+
+Sample:
+drwxr-xr-x  51 sw900b4_janitha sw900b4_janitha   4096 Jun  3 13:51 .
+drwxr-xr-x 128 root            root              4096 May  2 12:03 ..
+drwxrwxr-x  10 sw900b4_janitha sw900b4_janitha   4096 May 20 13:50 Assignments Janitha
+drwx------  21 sw900b4_janitha sw900b4_janitha   4096 Jun  3 13:35 .cache
+drwxr-xr-x  23 sw900b4_janitha sw900b4_janitha   4096 Jun  2 13:59 .config
+drwxrwxr-x   2 sw900b4_janitha sw900b4_janitha   4096 Apr 28 14:12 d1
+-rwxrwxr-x   1 sw900b4_janitha sw900b4_janitha    506 May 21 13:33 psales1.py
+-rwxrwxr-x   1 sw900b4_janitha sw900b4_janitha    387 May 21 13:40 psales.py
+
+
+7.Display lines that correspond to directories with exactly two letter names 
+grep '^d.* [^ ]\{2\}$' lso.out
+drwxr-xr-x 128 root            root              4096 May  2 12:03 ..
+drwxrwxr-x   2 sw900b4_janitha sw900b4_janitha   4096 Apr 28 14:12 d1
+drwxrwxr-x   3 sw900b4_janitha sw900b4_janitha   4096 Apr 29 17:23 .r
+
+
+8.Display lines where in the filename section starts with a dot(.).
+grep ' \.[^ ]*$' lso.out
+
+Sample:
+drwxr-xr-x  51 sw900b4_janitha sw900b4_janitha   4096 Jun  3 13:51 .
+drwxr-xr-x 128 root            root              4096 May  2 12:03 ..
+-rw-------   1 sw900b4_janitha sw900b4_janitha   6505 Jun  2 15:01 .bash_history
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha    220 Apr 28 11:16 .bash_logout
+
+9.Display lines that contain more than one space character.
+grep ' \{2,\}' lso.out
+
+Sample:
+drwxr-xr-x  51 sw900b4_janitha sw900b4_janitha   4096 Jun  3 13:51 .
+drwxr-xr-x 128 root            root              4096 May  2 12:03 ..
+drwxrwxr-x  10 sw900b4_janitha sw900b4_janitha   4096 May 20 13:50 Assignments Janitha
+-rw-------   1 sw900b4_janitha sw900b4_janitha   6505 Jun  2 15:01 .bash_history
+
+10.Display the file(all the lines).
+cat lso.out
+total 1416
+drwxr-xr-x  51 sw900b4_janitha sw900b4_janitha   4096 Jun  3 13:51 .
+drwxr-xr-x 128 root            root              4096 May  2 12:03 ..
+drwxrwxr-x  10 sw900b4_janitha sw900b4_janitha   4096 May 20 13:50 Assignments Janitha
+-rw-------   1 sw900b4_janitha sw900b4_janitha   6505 Jun  2 15:01 .bash_history
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha    220 Apr 28 11:16 .bash_logout
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha   3771 Apr 28 11:16 .bashrc
+drwx------  21 sw900b4_janitha sw900b4_janitha   4096 Jun  3 13:35 .cache
+drwxr-xr-x  23 sw900b4_janitha sw900b4_janitha   4096 Jun  2 13:59 .config
+drwxrwxr-x   2 sw900b4_janitha sw900b4_janitha   4096 Apr 28 14:12 d1
+drwx------   3 sw900b4_janitha sw900b4_janitha   4096 Apr 28 13:58 .dbus
+drwxr-xr-x   2 sw900b4_janitha sw900b4_janitha   4096 Apr 28 15:55 Desktop
+drwxrwxr-x   3 sw900b4_janitha sw900b4_janitha   4096 May  1 14:46 dir1
+drwxrwxr-x   2 sw900b4_janitha sw900b4_janitha   4096 Apr 28 15:29 dir2
+drwxr-xr-x   2 sw900b4_janitha sw900b4_janitha   4096 Apr 29 17:25 Documents
+drwxrwxr-x   3 sw900b4_janitha sw900b4_janitha   4096 May  5 15:12 .dotnet
+drwxr-xr-x   2 sw900b4_janitha sw900b4_janitha   4096 May 21 14:49 Downloads
+-rwxrw-r--   1 sw900b4_janitha sw900b4_janitha      5 May  5 13:44 dt
+-rw-rw-r--   1 sw900b4_janitha sw900b4_janitha    257 Apr 29 17:09 exercise1.r
+-rw-rw-r--   1 sw900b4_janitha sw900b4_janitha      0 May 30 13:48 f1
+-rw-rw-r--   1 sw900b4_janitha sw900b4_janitha      0 May 13 12:08 f2
+-rw-rw-r--   1 sw900b4_janitha sw900b4_janitha      0 May 13 12:08 f3
+drwx------   3 sw900b4_janitha sw900b4_janitha   4096 Apr 30 13:14 .gnome
+drwx------   3 sw900b4_janitha sw900b4_janitha   4096 Apr 28 13:58 .gnupg
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha   2224 May 20 13:47 h
+-rw-------   1 sw900b4_janitha sw900b4_janitha   1982 Jun  3 13:35 .ICEauthority
+drwxrwxr-x   2 sw900b4_janitha sw900b4_janitha   4096 Apr 28 16:20 .idlerc
+drwxrwxr-x   3 sw900b4_janitha sw900b4_janitha   4096 May  5 15:14 .ipython
+-rw----rw-   1 sw900b4_janitha sw900b4_janitha    158 May 20 14:14 items.csv
+drwxrwxr-x   2 sw900b4_janitha sw900b4_janitha   4096 Apr 30 14:11 janitha_personal
+-rw-------   1 sw900b4_janitha sw900b4_janitha     20 May 20 13:51 .lesshst
+drwxrwxr-x   3 sw900b4_janitha sw900b4_janitha   4096 May  1 15:01 linux1
+drwxrwxr-x   2 sw900b4_janitha sw900b4_janitha   4096 May  1 14:59 linux2
+drwxr-xr-x   4 sw900b4_janitha sw900b4_janitha   4096 May 20 13:41 .local
+drwx------   4 sw900b4_janitha sw900b4_janitha   4096 May  1 11:11 .mozilla
+drwxr-xr-x   2 sw900b4_janitha sw900b4_janitha   4096 Apr 28 13:58 Music
+-rw-rw-r--   1 sw900b4_janitha sw900b4_janitha     87 May  6 14:59 myvifile
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha  12288 May  5 15:04 .myvifile.swo
+-rw-rw-r--   1 sw900b4_janitha sw900b4_janitha     24 May 16 12:42 newnewsample
+-rw-rw-r--   1 sw900b4_janitha sw900b4_janitha     57 May 16 12:40 newsample
+drwx------   3 sw900b4_janitha sw900b4_janitha   4096 Apr 28 16:28 .nv
+-rw-rw-r--   1 sw900b4_janitha sw900b4_janitha      0 May 21 13:25 p
+drwxrwxrwt   2 sw900b4_janitha sw900b4_janitha   4096 May 21 13:12 .pcsc12
+drwxrwxrwt   2 sw900b4_janitha sw900b4_janitha   4096 May  8 13:22 .pcsc13
+drwxrwxrwt   2 sw900b4_janitha sw900b4_janitha   4096 May 22 14:21 .pcsc14
+drwxrwxrwt   2 sw900b4_janitha sw900b4_janitha   4096 May 16 17:01 .pcsc15
+drwxrwxrwt   2 sw900b4_janitha sw900b4_janitha   4096 May 15 09:46 .pcsc16
+drwxrwxrwt   2 sw900b4_janitha sw900b4_janitha   4096 May 30 13:40 .pcsc20
+drwxrwxrwt   2 sw900b4_janitha sw900b4_janitha   4096 Jun  3 13:35 .pcsc22
+drwxrwxrwt   2 sw900b4_janitha sw900b4_janitha   4096 May 15 15:23 .pcsc27
+drwxrwxrwt   2 sw900b4_janitha sw900b4_janitha   4096 Jun  2 13:07 .pcsc29
+drwxrwxrwt   2 sw900b4_janitha sw900b4_janitha   4096 Apr 29 16:24 .pcsc32
+drwxrwxrwt   2 sw900b4_janitha sw900b4_janitha   4096 Apr 28 13:58 .pcsc36
+drwxr-xr-x   2 sw900b4_janitha sw900b4_janitha   4096 Apr 28 13:58 Pictures
+drwx------   3 sw900b4_janitha sw900b4_janitha   4096 Apr 28 16:14 .pki
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha    807 Apr 28 11:16 .profile
+-rwxrwxr-x   1 sw900b4_janitha sw900b4_janitha    506 May 21 13:33 psales1.py
+-rwxrwxr-x   1 sw900b4_janitha sw900b4_janitha    387 May 21 13:40 psales.py
+drwxr-xr-x   2 sw900b4_janitha sw900b4_janitha   4096 Apr 28 13:58 Public
+drwxrwxr-x   2 sw900b4_janitha sw900b4_janitha   4096 Apr 28 16:28 Python
+drwxrwxr-x   3 sw900b4_janitha sw900b4_janitha   4096 Apr 29 17:23 .r
+drwxrwxr-x   3 sw900b4_janitha sw900b4_janitha   4096 Apr 29 16:43 R
+-rw-rw-r--   1 sw900b4_janitha sw900b4_janitha   3133 May 29 15:01 .RData
+-rw-rw-r--   1 sw900b4_janitha sw900b4_janitha   1604 May 29 15:01 .Rhistory
+-rw----rw-   1 sw900b4_janitha sw900b4_janitha   9215 May 20 14:14 sales_2023.xlsx
+-rw----rw-   1 sw900b4_janitha sw900b4_janitha   9228 May 20 14:14 sales_2024.xlsx
+-rw-rw-r--   1 sw900b4_janitha sw900b4_janitha    121 May  9 14:19 sam1
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha  12288 May  9 14:08 .sam1.swp
+-rw-rw-r--   1 sw900b4_janitha sw900b4_janitha     40 May  9 14:50 sam3
+-rw-rw-r--   1 sw900b4_janitha sw900b4_janitha     47 May  9 15:08 sam4
+-rw-rw-r--   1 sw900b4_janitha sw900b4_janitha   2687 May 16 12:36 sample
+drwxrwxr-x   4 sw900b4_janitha sw900b4_janitha   4096 May  5 13:43 set2
+drwxrwxr-x   3 sw900b4_janitha sw900b4_janitha   4096 Jun  3 13:43 set5
+drwxrwxr-x   2 sw900b4_janitha sw900b4_janitha   4096 Jun  3 13:52 set6
+drwx------   3 sw900b4_janitha sw900b4_janitha   4096 May  5 15:11 snap
+drwxr-xr-x   2 sw900b4_janitha sw900b4_janitha   4096 Apr 28 13:58 Templates
+drwxrwxr-x   2 sw900b4_janitha sw900b4_janitha   4096 May  2 16:11 test
+drwx------   1 sw900b4_janitha sw900b4_janitha      0 Jun  3 13:35 thinclient_drives
+drwxr-xr-x   2 sw900b4_janitha sw900b4_janitha   4096 Apr 28 13:58 Videos
+-rw-------   1 sw900b4_janitha sw900b4_janitha  15190 May 21 13:40 .viminfo
+-rw-rw-r--   1 sw900b4_janitha sw900b4_janitha     48 May 16 12:41 .vimrc
+drwx------   2 sw900b4_janitha sw900b4_janitha   4096 Apr 28 11:16 .vnc
+drwxrwxr-x   4 sw900b4_janitha sw900b4_janitha   4096 May  5 15:11 .vscode
+-rw-------   1 sw900b4_janitha sw900b4_janitha    980 Jun  3 13:35 .Xauthority
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha   1600 Apr 28 11:16 .Xdefaults
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha  21593 May 21 15:23 .xorgxrdp.12.log
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha  50061 May  8 16:47 .xorgxrdp.13.log
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha  21257 May 22 15:48 .xorgxrdp.14.log
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha  29832 May 20 19:14 .xorgxrdp.14.log.old
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha  23424 May 16 17:02 .xorgxrdp.15.log
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha  23409 May 15 13:48 .xorgxrdp.15.log.old
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha  21187 May 15 12:48 .xorgxrdp.16.log
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha  25785 May 24 03:32 .xorgxrdp.17.log
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha  21674 May 16 12:57 .xorgxrdp.17.log.old
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha  26707 May 13 17:50 .xorgxrdp.19.log
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha  20785 May 30 14:39 .xorgxrdp.20.log
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha  20276 Jun  3 13:42 .xorgxrdp.22.log
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha  20867 May 29 15:03 .xorgxrdp.22.log.old
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha  21838 May 15 16:21 .xorgxrdp.27.log
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha  21359 Jun  2 15:07 .xorgxrdp.29.log
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha  29035 Apr 29 17:28 .xorgxrdp.32.log
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha  21849 Apr 28 16:45 .xorgxrdp.36.log
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha  63253 May  5 15:37 .xorgxrdp.40.log
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha  24555 Apr 30 16:43 .xorgxrdp.40.log.old
+-rw-r--r--   1 sw900b4_janitha sw900b4_janitha     14 Apr 28 11:16 .xscreensaver
+-rw-------   1 sw900b4_janitha sw900b4_janitha 507345 Jun  3 13:51 .xsession-errors
+

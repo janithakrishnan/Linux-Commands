@@ -1,0 +1,93 @@
+
+
+Vi - Exercise 
+
+1.Open a new file called myvifile using the command: vi myvifile.
+vi myvifile
+2.Press the lower case letter i to begin inserting text at the first line and check for 
+	any indication on the screen that you are in text insertion mode.
+	
+i
+-- INSERT --                                                  1,1           All
+	
+3.Type your name.
+Janitha
+
+4.Press the Esc key to leave Insert Entry mode and return to Command mode and check for 
+	any indication on the screen that you are back in Command mode.
+COMMAND MODE
+                                                             1,7           All
+
+5.Type a colon to go from Command mode to Last-line mode and check the bottom left corner of the screen for a a colon (:). 
+:
+
+6.Type a lower case w (write   to save your new file), followed by a lower case q to quit
+wq
+7.Type ls,    and check for the file you created myvifile.
+ls
+8.Type cat myvifile 
+cat myvifile
+Janitha
+9.Open myvifile using the command  vi myvifile.
+
+10.Position the cursor at the end of your name and press the lower case letter a to append to the line you typed earlier. 
+a
+11.Type some text, and the press Enter for a hard return and then type some more text. 
+
+12.Enter about three lines of text this way. 
+
+13.Press the Esc key to leave Insert mode and return to Command mode.
+
+14.Type a colon :  to go from Command mode to Last-line mode. 
+Janithaaaaaaaaaaaaa
+This is neyyyhghfghfg
+Hello
+good morning
+
+15.Press the Esc key to leave lastline mode and return to Command mode.
+Esc
+16.Practise positioning your cursor h,j,k,l,b,e,w,0,$,G 
+h-left
+j down
+k up
+l right
+b beginning of the current word 
+e end of the current word
+w beginning of the next word 
+0 beginning of the current line
+$ end of the current line
+| same as 0
+
+17.Try using arrow keys to navigate in command mode.
+
+18.Switch to edit mode and try to use arrow keys to navigate.
+i
+19.Type a lower case o to open a new line below the line your cursor is on and enter some new text. 
+o
+Printed after typing o
+HEllo printed after using o
+
+20.Press the Esc key again to leave Insert Entry mode and return to Command mode.
+Esc
+21.Type a colon (:) to go to Last-line mode then save and quit this file when you are finished.
+:x
+22.Type cat myvifile and check for the changes you saved.
+cat myvifile
+Janithaaaaaaaaaaaaa
+This is neyyyhghfghfg
+good morning
+HEllo printed after using o
+
+23.Open the above file using vi.
+vi myvifile
+24.try y and d operators
+ye- copies till end of the word 
+5yy- copies 5 lines staring from the current line
+y$- copies till end of the line
+dd for deleting current line
+25.Quit vi without saving the changes
+:q!
+============================================================================
+
+Now practice vi commands by creating requirements of your  own choice.
+============================================================================

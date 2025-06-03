@@ -1,0 +1,131 @@
+1. Log into the system using the given username and password.
+2. Change your password.
+ans:passwd
+3. Add current directory to path variable.
+ans:    PATH=$PATH:.
+PATH=$PATH:.
+
+How to check?
+Input: echo $PATH
+Output: /sbin:/bin:/usr/bin:/usr/local/bin:/usr/local/hadoop/sbin:/usr/local/hadoop/bin:/usr/local/hive:/usr/local/hive/bin:/usr/local/pig-0.17.0/bin:/usr/local/anaconda/condabin:/snap/bin:.
+
+4. Create a new directory named dir1 in your home directory.
+ans: mkdir dir1
+
+5. Change to that directory.
+ans: cd dir1
+
+6. create a file named f1 in that directory with some content.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ans: cat >f1
+This is new file f1 in dir1
+
+How to check?
+Input: cat >f1
+Output: This is new file f1 in dir1
+
+
+7. copy f1 to f2
+ans: cp f1 f2
+
+How to check?
+Input:cat f2
+Output: This is new file f1 in dir1
+
+8. delete f1
+ans: rm f1
+
+How to check?
+Input: ls
+Output: f2
+
+9. Display the content of f2
+ans: cat f2
+
+This is new file f1 in dir1
+
+
+10. Create another file f3
+ans: cat >f3
+This is f3 file 
+or 
+can use
+touch f3 - creates an empty file
+How to check?
+Input: ls
+Output: f2  f3
+
+
+
+11. create a new file f4 to contain both f2 and f3
+ans: cat f2 f3 >f4
+
+How to check?
+Input: cat f4
+Output:
+This is new file f1 in dir1
+This is f3 file 
+
+
+12. create another file f5 that conatins f2,stdin, and then f3 in that order.
+ans:cat f2 - f3 > f5
+
+This is from stdin
+
+How to check?
+Input:cat f5
+Output:
+This is new file f1 in dir1
+This is from stdin
+This is f3 file 
+
+
+13. Rename f5 to f1.
+ans: mv f5 f1
+
+How to check?
+ls
+f1  f2  f3  f4
+
+
+14. Copy the direcory dir1 to dir2.
+ans:cp -r dir1 dir2
+
+15. List all the contents of dir2.
+ans:ls
+f1  f2  f3  f4
+
+16. Display Today's date
+ans: date 
+Output:Monday 28 April 2025 03:04:26 PM IST
+
+17. Display Today's date in the format : Today is 21-Mar-2017
+ans: date +'Today is %d-%b-%Y'
+Today is 28-Apr-2025
+
+
+18. Check and specify whether mkdir is an external command or not
+ans: type mkdir
+mkdir is hashed (/bin/mkdir)
+therefore, external File
+
+19. create a file ff1 and add some content.
+ans: cat >ff1
+this is ff1 file
+
+20. Send the output of ls and the content of ff1 to another file ff2. 
+ans:(ls;cat ff1)> ff2
+
+How to check?
+Input:
+cat ff2
+ Output:
+
+f1
+f2
+f3
+f4
+ff1
+ff2
+this is ff1 file
+
+

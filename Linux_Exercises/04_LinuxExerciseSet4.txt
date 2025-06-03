@@ -1,0 +1,216 @@
+1. Open vi to create a new file named sample to contain some 10 lines(consisting of multiple words) of your choice.
+vi sample
+Hello
+How are you
+This is sample file
+good
+morning
+abcd
+jhuyfdhygshf
+jsdjd jkdsjjd iodjkdj
+yhjg djhhjbd
+hjshd djhhdjhu uhwhjsdh hghsdgh
+
+2. Insert 5 new lines(content,say, one two three) below 5th line(use repeat factor).
+
+Esc
+5G -moves cursor to the beginning of 5th line
+5o - opens new line below the current line
+
+one two three (type one two three when new line opens after 5o command.
+		 You can see only one line after typing 5o. 
+Esc
+
+3. Do the same after the last line (use repeat command).
+
+Esc
+G
+5o
+one two three
+Esc
+
+4. Write the first five lines to another file say sam1.
+Esc
+:1,5w sam1
+
+vi sam1
+Hello
+How are you
+This is sample file
+good
+morning
+
+5. Change the case of the first character in the first line.
+Esc
+gg
+~
+
+6. Repeat the same for second and third line.
+Esc
+2G
+~
+Esc
+3G
+~
+7. Split the screen into two.
+Esc
+:sp
+
+
+8. Open the file sam1 in one of the windows.
+ctrl ww
+Esc
+:vi sam1
+
+9. Copy last 5 lines from sample to sam1.
+ctrl ww
+G
+4k
+5yy - yanked last 5 lines
+ctrl ww - moves to sam1 window
+G - goes to last line of sam1
+p - paste yanked lines
+
+
+vi sam1
+Hello
+How are you
+This is sample file
+good
+morning
+one two three
+one two three
+one two three
+one two three
+one two three
+
+
+10.Save and close sam1's window.
+:x sam1
+
+11.Get a shell without quiting vi and create 3 blank files named f1,f2and f3.
+Esc
+:sh
+> f1 > f2 > f3
+12.Resume the edit session
+exit - exits the shell session and resumes the vi editor
+13.Insert the output of ls -l command at the end of the file sample.
+Esc
+$
+:r !ls -l
+14.Search for the pattern f followed by 1 or 2 or 3 and replace the same with the string 'a blank file'  
+:1,$s/f[123]/a blank file/g
+
+before replace command:
+rw-rw-r-- 1 sw900b4_janitha sw900b4_janitha    0 May 13 12:08 f1
+-rw-rw-r-- 1 sw900b4_janitha sw900b4_janitha    0 May 13 12:08 f2
+-rw-rw-r-- 1 sw900b4_janitha sw900b4_janitha    0 May 13 12:08 f3
+
+after replace command:
+-rw-rw-r-- 1 sw900b4_janitha sw900b4_janitha    0 May 13 12:08 a blank file
+-rw-rw-r-- 1 sw900b4_janitha sw900b4_janitha    0 May 13 12:08 a blank file
+-rw-rw-r-- 1 sw900b4_janitha sw900b4_janitha    0 May 13 12:08 a blank file
+
+
+15.undo the above operation.
+u
+
+16.Search for the pattern f followed by 1 or 2 or 3 and replace the same with the source string and '(this is a blank file)' at the end (i.e. after the file name)
+	(hint: the source pattern will be there in &)
+
+:1,$s/f[123]/& this is a blank file/g
+-rw-rw-r-- 1 sw900b4_janitha sw900b4_janitha    0 May 13 12:08 f1 this is a blank file
+-rw-rw-r-- 1 sw900b4_janitha sw900b4_janitha    0 May 13 12:08 f2 this is a blank file
+-rw-rw-r-- 1 sw900b4_janitha sw900b4_janitha    0 May 13 12:08 f3 this is a blank file
+
+17.Create a two letter abbreviation for your name and enter the same in two or three places.
+Esc :ab JK Janitha Krishnan
+
+18.Remove the abbreviation and try using the same (hint: unab)
+Esc :unab JK
+
+19.Store the first line into buffer a, 3rd & 4th into buffer b and 5th into buffer c and without splitting the screen paste these buffers into a new file say sam3 and save the same.
+gg
+Esc 
+"ayy
+3G
+"b2y
+5G
+"cyy
+
+
+To create new file sam3 and save the same
+:n sam3
+Esc
+"ap
+"bp
+"cp
+:x
+
+20.Do the same(Question 19) to create a file say sam4 using delete buffers .
+gg
+dd- deletes the first line
+go to 3rd line 
+2d - removes 3 and 4th lines
+dd- removes 5th line
+
+to paste to new file
+Esc :n sam4
+Esc "3p- paste the 3rd last content deleted
+Esc "2p- paste the 2nd last content deleted
+Esc "1p- paste the last content deleted
+
+
+21.Create a command mode map ,say z, for saving your file.
+Esc
+:map z :wCtrlvEnter
+Shows as:
+:map z :w^M
+
+22.Remove the above mapping and make the same input mode mapping.
+Esc 
+:unmap z
+
+
+23.Create file saving mapping for the function key F2 (#2 denotes F2) in text mode.
+
+Esc
+:map! #2 CtrlvEsc:wCtrlvEnter
+Shows as:
+:map! #2 ^[:w^M
+
+24.Test autoindent and numbering features.
+For adding autoindent
+Esc
+:set ai 
+Output:
+Hello How are you
+        word1
+        word2
+                word3
+
+For adding numbering feature
+:set nu
+Output:
+26 Hello How are you
+27         word1
+28         word2
+29                 word3
+
+25.Store the abbreviation created for Q.No.17 and mapping created in Q.No.23 in .exrc file in your home directory and test the same.
+
+Create .vimrc File
+vi .vimrc
+Insert
+syntax off
+ab JK Janitha Krishnan
+map! #2 ^[:w^M
+
+To Check:
+Created a new file using vi newsample
+Insert
+Hello
+Good Morning
+Janitha Krishnan (created using abbreviation)
+File was saved after pressing F2
+

@@ -1,0 +1,180 @@
+
+1. Login and open a terminal. Print your present working directory.
+ pwd
+ OUTPUT: /home/sw900b4_janitha
+
+2. Create a directory named set2 in and from your home directory.
+mkdir set2
+
+
+3. Switch to set2 and create a file say f1 with some content in the directory set2.
+cd set2; cat >f1
+This is from file f1 in set2 
+
+How to check?
+INPUT: cat f1
+OUTPUT:This is from file f1 in set2
+
+
+4. Switch to home directory and print the content of f1 in set2 directory by specifying the pathname in four different ways.
+ 
+ 	1. Absolute Pathing
+	cat /home/sw900b4_janitha/set2/f1
+	This is from file f1 in set2
+
+	2. Relative Pathing
+	cat set2/f1
+	This is from file f1 in set2
+
+	3. Relative Pathing
+	cat ./set2/f1
+	This is from file f1 in set2
+	
+	4. Absolute Pathing
+	cat ~/set2/f1
+	This is from file f1 in set2
+	
+	5. Absolute Pathing
+	cat $HOME/set2/f1
+	This is from file f1 in set2
+
+
+
+	
+ 
+5. switch to set2(should be your previous working dir) without specifying dir name(hint: toggle between dirs)
+cd -
+ 
+6. Create another file say dt to contain the string, date.
+
+cat >dt
+date
+
+
+ls -l dt
+-rw-rw-r-- 1 sw900b4_janitha sw900b4_janitha 5 May  2 16:32 dt
+
+
+7. Remove r permission and try to display the content of dt.
+chmod u-r dt
+cat dt
+cat: dt: Permission denied
+
+
+How to check?
+
+ ls -l dt
+--w-rw-r-- 1 sw900b4_janitha sw900b4_janitha 5 May  2 16:32 dt
+ 
+ 
+
+8. Assign r permission and repeat 7.
+chmod u+r dt
+cat dt
+date
+
+ls -l dt
+-rw-rw-r-- 1 sw900b4_janitha sw900b4_janitha 5 May  2 16:32 dt
+
+ 
+9. Remove all the permissions and then assign the same using numbers(combination of 4,2 and 1)
+ chmod a-rwx dt
+ How to check?
+ ls -l dt
+---------- 1 sw900b4_janitha sw900b4_janitha 5 May  2 16:32 dt
+ 
+ To assign permissions using numbers
+ chmod 664 dt
+ Assigns all permissions to user
+ assigns read permission to group
+ assigns all permission to others 
+ 
+ ls -l dt
+ -rw-rw-r-- 1 sw900b4_janitha sw900b4_janitha 5 May  2 16:32 dt
+ 
+10. Type dt in the prompt and check the output.
+ dt: command not found
+ 
+
+
+11. Assign x mode to user and repeat question 10.
+chmod 764 dt
+ls -l dt
+-rwxrw-r-- 1 sw900b4_janitha sw900b4_janitha 5 May  2 16:32 dt
+
+dt
+dt: command not found
+
+ 
+12. If the desired result is not getting,try giving complete pathname for dt or modify PATH variable and try 10.
+ 
+PATH=$PATH:.
+dt
+Friday 02 May 2025 05:35:58 PM IST
+
+
+13.Display the default file/dir creation mask value.
+umask
+0002
+
+ 
+14.Change the deafault file/dir creation mask value such that all the permissions should not be set for group and others.
+umask 066
+Can give umask 077 if functions of directory need not to be executed
+ 
+ 
+15.Create some files and dirs to check the new mask value.
+
+Files created after making umask 066
+mkdir ndir1
+cat >f11
+this is file f11
+
+ls -l
+-rw------- 1 sw900b4_janitha sw900b4_janitha   17 May  2 16:44 f11
+drwx--x--x 2 sw900b4_janitha sw900b4_janitha 4096 May  2 16:44 ndir1
+
+
+
+Files created after making umask 077
+mkdir nndir1
+cat >f111
+This is new file
+
+ls -l nndir1 f111
+-rw------- 1 sw900b4_janitha sw900b4_janitha   17 May  2 16:54 f111
+nndir1:
+
+16. Restore the original mask value.     
+umask 002
+ 
+17. Create a hard link for the file f1,also, create a copy of the same file. 
+ln f1 hf1
+cp f1 f2
+ 
+18. Display and check the inode values for the three files.
+ls -li hf1 f1 f2
+13895279 -rw-rw-r-- 2 sw900b4_janitha sw900b4_janitha 29 Apr 29 15:24 f1
+13900839 -rw-rw-r-- 1 sw900b4_janitha sw900b4_janitha 29 May  2 16:47 f2
+13895279 -rw-rw-r-- 2 sw900b4_janitha sw900b4_janitha 29 Apr 29 15:24 hf1
+
+19. Change the content of the link file and check the content of the three files.
+cat >hf1
+Hello. Change the content
+
+cat f1 hf1 f2
+Hello. Change the content
+Hello. Change the content
+This is from file f1 in set2
+
+
+20. Create one more link for the file f1 and display the link count in the format LINKS=n.
+ln f1 hf2
+ls -l f1 hf1 hf2
+-rw-rw-r-- 3 sw900b4_janitha sw900b4_janitha 26 May  2 16:49 f1
+-rw-rw-r-- 3 sw900b4_janitha sw900b4_janitha 26 May  2 16:49 hf1
+-rw-rw-r-- 3 sw900b4_janitha sw900b4_janitha 26 May  2 16:49 hf2
+
+21. Delete links one by one and check the link count.
+
+ 
