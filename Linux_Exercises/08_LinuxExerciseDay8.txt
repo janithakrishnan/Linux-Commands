@@ -1,0 +1,145 @@
+1.Create a folder set8 in your home directory and switch to the same.
+mkdir set8
+cd set8
+2.Get the output of ls -l of your home directory inside a file, say, lsho.
+Solve the following problems using awk.(The input file for each probelm will be the output of the prev problem) 
+ls -l ~>lsho
+sw900b4_janitha@itg-HP-Z6-G4-Workstation:~/set8$ cat lsho
+total 172
+drwxrwxr-x 11 sw900b4_janitha sw900b4_janitha 4096 Jun  4 14:44 Assignments Janitha
+drwxrwxr-x  2 sw900b4_janitha sw900b4_janitha 4096 Apr 28 14:12 d1
+drwxr-xr-x  2 sw900b4_janitha sw900b4_janitha 4096 Apr 28 15:55 Desktop
+drwxrwxr-x  3 sw900b4_janitha sw900b4_janitha 4096 May  1 14:46 dir1
+drwxrwxr-x  2 sw900b4_janitha sw900b4_janitha 4096 Apr 28 15:29 dir2
+
+3.Remove the first line from lsho and get the output in lsho1
+
+awk 'NR>1' lsho>lsho1
+cat lsho1
+drwxrwxr-x 11 sw900b4_janitha sw900b4_janitha 4096 Jun  4 14:44 Assignments Janitha
+drwxrwxr-x  2 sw900b4_janitha sw900b4_janitha 4096 Apr 28 14:12 d1
+drwxr-xr-x  2 sw900b4_janitha sw900b4_janitha 4096 Apr 28 15:55 Desktop
+drwxrwxr-x  3 sw900b4_janitha sw900b4_janitha 4096 May  1 14:46 dir1
+drwxrwxr-x  2 sw900b4_janitha sw900b4_janitha 4096 Apr 28 15:29 dir2
+
+4.Make ':' as the field separator instead of white space and get the out put in lsho2(hint:OFS is output field separator OR use sed command)  
+vi sfile
+
+cat sfile
+BEGIN{
+FS=" "
+OFS=":"
+}
+{
+print $1,$2,$3,$3,$4,$5,$6,$7,$8,$9}
+
+awk -f sfile lsho1>lsho2
+
+cat lsho2
+
+drwxrwxr-x:11:sw900b4_janitha:sw900b4_janitha:4096:Jun:4:14:44:Assignments
+drwxrwxr-x:2:sw900b4_janitha:sw900b4_janitha:4096:Apr:28:14:12:d1
+drwxr-xr-x:2:sw900b4_janitha:sw900b4_janitha:4096:Apr:28:15:55:Desktop
+drwxrwxr-x:3:sw900b4_janitha:sw900b4_janitha:4096:May:1:14:46:dir1
+drwxrwxr-x:2:sw900b4_janitha:sw900b4_janitha:4096:Apr:28:15:29:dir2
+drwxr-xr-x:2:sw900b4_janitha:sw900b4_janitha:4096:Apr:29:17:25:Documents
+drwxr-xr-x:2:sw900b4_janitha:sw900b4_janitha:4096:Jun:4:14:52:Downloads
+-rwxrw-r--:1:sw900b4_janitha:sw900b4_janitha:5:May:5:13:44:dt
+-rw-rw-r--:1:sw900b4_janitha:sw900b4_janitha:257:Apr:29:17:09:exercise1.r
+
+
+5.Create lsho3 to contain the following.
+
+Files with Size in bytes
+========================
+No.   Filename      size
+--    -------       ----
+--    -------       ----
+--    -------       ----
+--    -------       ----
+--    -------       ----
+--    -------       ----
+--    -------       ----
+========================
+Total files = --
+Total size = --
+========================
+ 
+ 
+ 
+ awk -f sfile2 lsho2>lsho3
+
+ vi sfile2
+cat sfile2
+
+BEGIN{
+FS=":"
+print "Files with Size in bytes"
+print "========================"
+print "No.\tFilename\tsize"
+}
+{
+tsize=tsize+$5
+print NR,$10,$5}
+END{
+print "========================"
+print "Total files=",NR
+print "Total size=",tsize
+print "========================"
+}
+
+                                        
+
+ cat lsho3
+Files with Size in bytes
+========================
+No.	Filename	size
+1 Assignments 4096
+2 d1 4096
+3 Desktop 4096
+4 dir1 4096
+5 dir2 4096
+6 Documents 4096
+7 Downloads 4096
+8 dt 5
+9 exercise1.r 257
+10 f1 0
+11 f2 0
+12 f3 0
+13 h 2224
+14 items.csv 158
+15 janitha_personal 4096
+16 linux1 4096
+17 linux2 4096
+18 Music 4096
+19 myvifile 87
+20 newnewsample 24
+21 newsample 57
+22 p 0
+23 Pictures 4096
+24 psales1.py 506
+25 psales.py 387
+26 Public 4096
+27 Python 4096
+28 R 4096
+29 sales_2023.xlsx 9215
+30 sales_2024.xlsx 9228
+31 sam1 121
+32 sam3 40
+33 sam4 47
+34 sample 2687
+35 set2 4096
+36 set5 4096
+37 set6 4096
+38 set7 4096
+39 set8 4096
+40 snap 4096
+41 Templates 4096
+42 test 4096
+43 thinclient_drives 0
+44 Videos 4096
+========================
+Total files= 44
+Total size= 123347
+========================
+
