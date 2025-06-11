@@ -1,0 +1,106 @@
+
+#TO FIND COUNT OF ZEROS IN ESALARY FIELD AND PRINT AND THE END OF EACH LINE
+#USING WHILE LOOP
+
+
+sw900b4_janitha@itg-HP-Z6-G4-Workstation:~/set8$ cat emp
+eno,ename,edesig,esalary
+101,TOM,engineer,25000
+102,RAJ,officer,15000
+103,ROY,Sr officer,20000
+104,ANN,engineer,25000
+105,JOHN,officer,15000
+sw900b4_janitha@itg-HP-Z6-G4-Workstation:~/set8$ cat sfile3
+BEGIN{
+FS=","
+print "EMPLOYEE DETAILS"
+print "==============="
+}
+NR>1{
+chcnt=1
+count=0
+while(chcnt<length($4))
+{
+d=substr($4,chcnt,1)
+if(d==0){
+count++
+}
+chcnt++
+}
+print $0,"(",count,")"
+}
+END{
+print "================="
+}
+
+
+
+sw900b4_janitha@itg-HP-Z6-G4-Workstation:~/set8$ awk -f sfile3 emp
+EMPLOYEE DETAILS
+===============
+101,TOM,engineer,25000 ( 2 )
+102,RAJ,officer,15000 ( 2 )
+103,ROY,Sr officer,20000 ( 3 )
+104,ANN,engineer,25000 ( 2 )
+105,JOHN,officer,15000 ( 2 )
+=================
+
+
+#TO FIND FREQUENCY OF EDESIG FIELD AND PRINT
+
+sw900b4_janitha@itg-HP-Z6-G4-Workstation:~/set8$ cat sfile4
+BEGIN{
+FS=","
+print "EMPLOYEE DETAILS"
+print "================"
+}
+NR>1{
+arr[$3]++
+}
+END{
+for (des in arr)
+{
+print des,arr[des]
+}
+}
+sw900b4_janitha@itg-HP-Z6-G4-Workstation:~/set8$ awk -f sfile4 emp
+EMPLOYEE DETAILS
+================
+engineer 2
+Sr officer 1
+officer 2
+
+
+
+#TO FIND COUNT OF ZEROS IN ESALARY FIELD AND PRINT AND THE END OF EACH LINE
+#USING FOR LOOP
+sw900b4_janitha@itg-HP-Z6-G4-Workstation:~/set8$ cat sfile5
+BEGIN{
+FS=","
+print "EMPLOYEE DETAILS"
+print "==============="
+}
+NR>1{
+count=0
+for(chcnt=1;chcnt<length($4);chcnt++)
+{
+d=substr($4,chcnt,1)
+if(d==0){
+count++
+}
+}
+print $0,"(",count,")"
+}
+END{
+print "================="
+}
+sw900b4_janitha@itg-HP-Z6-G4-Workstation:~/set8$ awk -f sfile5 emp
+EMPLOYEE DETAILS
+===============
+101,TOM,engineer,25000 ( 2 )
+102,RAJ,officer,15000 ( 2 )
+103,ROY,Sr officer,20000 ( 3 )
+104,ANN,engineer,25000 ( 2 )
+105,JOHN,officer,15000 ( 2 )
+=================
+
