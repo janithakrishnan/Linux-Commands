@@ -1,0 +1,11 @@
+To check whether a given character is vowel or not.
+
+cat script5.sh     
+echo "Enter the character"
+read $ch                                                                                                                                             
+if [[ $ch == [AEIOUaeiou] ]]
+then          
+echo $ch is a Vowel      
+else                     
+echo $ch is not a vowel  
+fi   
