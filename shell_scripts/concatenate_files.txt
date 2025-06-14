@@ -1,0 +1,24 @@
+To concatenate two files and write to a third.
+ (make sure that the script takes exactly three parameters)
+ example:
+  scriptname file1  file2  file3
+vi script1.sh
+cat $1 $2 > $3
+
+vi script1.sh
+chmod +x script1.sh
+sh script1.sh file1 file2 file3
+
+cat file1
+Hello
+from file1
+
+cat file2
+file2 says hello
+ending file2
+
+cat file3
+Hello
+from file1
+file2 says hello
+ending file2
