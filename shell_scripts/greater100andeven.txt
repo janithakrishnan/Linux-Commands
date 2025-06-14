@@ -1,0 +1,24 @@
+To check whether a given no is greater than 100 and even.
+
+ echo "Enter the number:"
+ read num
+ c=`expr $num % 2`
+ if [ $num -gt 100 ] & [ $c -eq 0 ]
+ then
+ echo "Greater than 100 and even"
+ else
+ echo "Not greater than 100 and even"                                                                                                                                                    
+ fi
+
+
+vi script2.sh
+chmod +x script2.sh 
+sh script2.sh
+Enter the number:
+435
+Not greater than 100 and even
+
+sh script2.sh
+Enter the number:
+646
+Greater than 100 and even

@@ -1,0 +1,31 @@
+To print the greatest among three given numbers.
+
+cat script3.sh
+echo "Enter num1:"
+read num1
+echo "Enter num2:"
+read num2
+echo "Enter num3:"
+read num3
+if [ $num1 -gt $num3 ] & [ $num1 -gt $num2 ]
+then
+echo "$num1 is greater than $num2 and $num3"
+elif [ $num2 -gt $num3 ] & [ $num2 -gt $num3 ]
+then   
+echo "$num2 is greater than $num1 and $num3"
+else
+echo "$num3 is greater than $num1 and $num2"
+fi 
+
+
+
+vi script3.sh
+chmod +x script3.sh
+sh script3.sh
+Enter num1:
+4
+Enter num2:
+5
+Enter num3:
+6
+6 is greater than 4 and 5
