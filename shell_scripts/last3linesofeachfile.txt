@@ -1,0 +1,26 @@
+Write a script that displays the last three lines of each file in the current directory,duly preceded by the filename.
+
+cat script3.sh
+for var in *
+do
+echo $var
+tail -n3 $var
+done
+
+vi script3.sh 
+chmod +x script3.sh
+
+sh script3.sh   
+   
+script2.sh
+then
+echo $n is prime
+fi
+script3.sh
+echo $var
+tail -n3 $var
+done
+script4.sh
+else
+echo $1 is not a palindrome
+fi
