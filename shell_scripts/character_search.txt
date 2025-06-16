@@ -1,0 +1,20 @@
+To print a specified (by position) character in a given string.
+cat script4.sh
+
+echo "Enter the string:"
+read str1
+echo "Enter the position:"
+read pos
+echo The character at position $pos is
+expr substr $str1 $pos 1
+
+
+vi script4.sh
+chmod +x script4.sh
+sh script4.sh
+Enter the string:
+hello 
+Enter the position:
+3
+The character at position 3 is
+l
