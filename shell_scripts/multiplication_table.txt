@@ -1,0 +1,24 @@
+Write a script to print multiplication table of a given number.
+
+cat script1.sh
+
+for i in 1 2 3 4 5 6 7 i8 9 10
+do
+echo $i x $1 = $(($i * $1))
+done
+
+vi script1.sh
+
+chmod +x script1.sh
+sh script1.sh 2
+
+1 x 2 = 2
+2 x 2 = 4
+3 x 2 = 6
+4 x 2 = 8
+5 x 2 = 10
+6 x 2 = 12
+7 x 2 = 14
+8 x 2 = 16
+9 x 2 = 18
+10 x 2 = 20
