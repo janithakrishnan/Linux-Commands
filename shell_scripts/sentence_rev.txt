@@ -1,0 +1,21 @@
+Write a script to reverse a given sentence without reversing words.
+
+cat script5.sh                  
+i=0
+rvar=""
+space=" "
+for var in $1
+do
+rvar=$var$space$rvar
+done
+echo Actual Sentence: $1
+echo Reverse of the sentence: $rvar
+
+          
+vi script5.sh                    
+chmod +x script5.sh
+
+sh script5.sh "hello how are you"
+
+Actual Sentence: hello how are you
+Reverse of the sentence: you are how hello
