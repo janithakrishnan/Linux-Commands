@@ -1,0 +1,28 @@
+To check whether a given string is palindrome or not.
+
+cat script4.sh 
+    
+len=$(expr length $1)
+n=1
+rstr=""
+while [ $n -le $len ]
+do
+ch=$(expr substr $1 $n 1)
+rstr=$ch$rstr
+n=$((n+1))
+done
+if [ "$1" == "$rstr" ]
+then
+echo $1 is a Palindrome
+else
+echo $1 is not a palindrome
+fi
+
+vi script4.sh      
+chmod +x script4.sh
+
+sh script4.sh heheh
+heheh is a Palindrome
+
+sh script4.sh hello
+hello is not a palindrome
